@@ -91,8 +91,3 @@ const sorted = nummern.
     .map(num => num * 3)
     .sort((a, b) => a - b);
 console.log(sorted); // [9, 12, 15]
-
-// LIBRARIES
-
-// Lodash - библиотека для методов массивов
-// underscorejs
