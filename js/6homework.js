@@ -55,7 +55,7 @@ changeEven([44, 13, 81, 92, 36, 54], 100); // [144, 13, 81, 192, 136, 154]
 
 // 16.
 
-const books = [
+/* const books = [
     { title: 'Последнее королевство',
       author: 'Бернард Корнуэлл',
       genres: ['приключения', 'историческое']},
@@ -71,7 +71,7 @@ const allGenres = books.flatMap(book => book.genres);
 
 const uniqueGenres = allGenres.filter(
     (genre, index, array) => array.indexOf(genre) === index
-);
+); */
     
 // 17. Используя метод filter() дополни код так, чтобы:
 // В переменной topRatedBooks получился массив книг рейтинг которых (свойство rating) больше либо равно значению переменной MIN_RATING.
@@ -204,7 +204,7 @@ const averagePlayTime = totalPlayTime / playtimes.length;
 
 // 31. Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока, и получить общую сумму этих времён. Рассчитать время для каждого из игроков, можно разделив его время (свойство playtime) на количество игр (свойство gamesPlayed).
 
-const players = [
+/* const players = [
   { name: 'Манго', playtime: 1270, gamesPlayed: 4 },
   { name: 'Поли', playtime: 469, gamesPlayed: 2 },
   { name: 'Аякс', playtime: 690, gamesPlayed: 3 },
@@ -214,7 +214,7 @@ const players = [
 const totalAveragePlaytimePerGame = players.reduce((acc, player) => {
     return acc + (player.playtime / player.gamesPlayed);
 }, 0);
-console.log(totalAveragePlaytimePerGame); // 1023
+console.log(totalAveragePlaytimePerGame); // 1023 */
 
 // 32. Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех средств (свойство balance) которые хранят пользователи из массива users.
 
@@ -234,14 +234,14 @@ const getTotalFriendCount = users => {
 
 // ODER
 
-const getTotalFriendCount = users => 
+/* const getTotalFriendCount = users => 
     users.reduce((acc, user) => {
         return acc += user.friends.length
-    }, 0);
+    }, 0); */
 
 // 34. Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной alphabeticalAuthors копия массива имён авторов authors отсортированная в по алфавиту.
 
-const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+/* const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
 const authors = [
   'Ли Танит',
   'Бернард Корнуэлл',
@@ -251,7 +251,7 @@ const authors = [
 
 const ascendingReleaseDates = [...releaseDates].sort();
 
-const alphabeticalAuthors = [...authors].sort();
+const alphabeticalAuthors = [...authors].sort(); */
 
 // 35. Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию или убыванию. Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной descendingReleaseDates копия отсортированная по убыванию.
 
@@ -261,4 +261,95 @@ const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
 
 const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
 
-// 36. 
+// 36. Онлайн бибилиотеке необходимо отображать книги отсортированные по автору, в алфавитном и обратном алфавитном порядке. Дополни код так, чтобы в переменной authorsInAlphabetOrder получилась отсортированная по алфавиту копия массива authors, а в переменной authorsInReversedOrder копия отсортированная в обратном алфавитном порядке.
+
+const authors = [
+    'Ли Танит',
+    'Бернард Корнуэлл',
+    'Роберт Шекли',
+    'Федор Достоевский',
+    'Говард Лавкрафт'
+  ];
+  
+  const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+  
+const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+  
+// 37. Дополни код так, чтобы:
+// В переменной sortedByAuthorName получился массив книг отсортированный по имени автора в алфавитном порядке.
+// В переменной sortedByReversedAuthorName получился массив книг отсортированный по имени автора в обратном алфавитном порядке.
+// В переменной sortedByAscendingRating получился массив книг отсортированный по возрастанию рейтинга.
+// В переменной sortedByDescentingRating получился массив книг отсортированный по убыванию рейтинга.
+
+const books = [
+  { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+  { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+  { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+  { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+  { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 }
+];
+
+const sortedByAuthorName = [...books].sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author));
+console.log(sortedByAuthorName);
+
+const sortedByReversedAuthorName = [...books].sort((firstBook, secondBook) => secondBook.author.localeCompare(firstBook.author));
+console.log(sortedByReversedAuthorName);
+
+const sortedByAscendingRating = [...books].sort((firstBook, secondBook) => firstBook.rating - secondBook.rating);
+console.log(sortedByAscendingRating);
+
+const sortedByDescentingRating = [...books].sort((firstBook, secondBook) => secondBook.rating - firstBook.rating);
+console.log(sortedByDescentingRating);
+
+// 38. Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный по возрастанию их баланса (свойство balance).
+
+const sortByAscendingBalance = users => 
+    [...users].sort((a, b) => a.balance - b.balance);
+
+// 39. Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей отсортированный по убыванию количества их друзей (свойство friends).
+
+const sortByDescendingFriendCount = users => 
+    [...users].sort((a, b) => b.friends.length - a.friends.length);
+  
+// 40. Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный по их имени (свойство name) в алфавитном порядке.
+
+const sortByName = users => 
+    [...users].sort((a, b) => a.name.localeCompare(b.name));
+
+// 41. Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
+
+const MIN_BOOK_RATING = 8;
+
+const names = [...books]
+.filter(book => book.rating >= MIN_BOOK_RATING)
+.sort((a, b) => a.author.localeCompare(b.author))
+.map(book => book.author)
+    ;
+
+// 42. Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей отсортированный по возрастанию количества их друзей (свойство friends).
+
+const getNamesSortedByFriendCount = users => 
+    [...users]
+        .sort((a, b)=> a.friends.length - b.friends.length)
+        .map(user => user.name)
+    ;
+
+// 43. Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей (свойство friends) отсортированный по алфавиту.
+
+const getSortedFriends = users => 
+    users
+        .flatMap(user => user.friends)
+        .filter((friend, index, array) => array.indexOf(friend) === index)
+        .sort((a, b) => a.localeCompare(b))
+;
+    
+console.log(getSortedFriends(users));
+
+// 44. Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс пользователей (свойство balance), пол которых (свойство gender) совпадает со значением параметра gender.
+
+const getTotalBalanceByGender = (users, gender) => 
+    [...users]
+        .filter(user => user.gender === gender)
+        .reduce((acc, user) => {
+            return acc += user.balance}, 0)   
+;

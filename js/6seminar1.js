@@ -101,4 +101,37 @@ const shuffle = arr => {
 console.log(shuffle(numbers)); // [1, 5, 3, 4, 10, 9, 2, 7, 6, 8]
 console.log(numbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-// 6. allTopics flatMap filter uniqueTopics
+// 6. Собрать в allTopics массив всех предметов всех курсов используя flatMap. Используя filter выполнить фильтрацию, оставив в uniqueTopics только уникальные элементы.
+
+const courses = [
+  { name: 'Basic HTML+CSS',
+    topics: ['VSCode', 'HTML', 'CSS', 'GitHub Desktop', 'GitHub']},
+  { name: 'Intermediate HTML+CSS',
+    topics: ['VSCode', 'Terminal', 'Git', 'GitHub', 'HTML', 'CSS']},
+  { name: 'Basic JavaScript',
+    topics: ['VSCode','Type system','Loops','Functions','Conditions','Classes','DOM','Git','GitHub']},
+  { name: 'Intermediate JavaScript',
+    topics: ['VSCode','NPM','Bundlers','Transpiling','Promises','AJAX','Git','GitHub']},
+];
+
+const allTopics = courses.flatMap(course => course.topics);
+console.log(allTopics); // (28) ["VSCode", "HTML", "CSS", "GitHub Desktop", "GitHub", "VSCode", "Terminal", "Git", "GitHub", "HTML", "CSS", "VSCode", "Type system", "Loops", "Functions", "Conditions", "Classes", "DOM", "Git", "GitHub", "VSCode", "NPM", "Bundlers", "Transpiling", "Promises", "AJAX", "Git", "GitHub"]
+
+const uniqueTopics = allTopics.filter(
+    (topic, index, array) => array.indexOf(topic) === index);
+console.log(uniqueTopics); // (18) ["VSCode", "HTML", "CSS", "GitHub Desktop", "GitHub", "Terminal", "Git", "Type system", "Loops", "Functions", "Conditions", "Classes", "DOM", "NPM", "Bundlers", "Transpiling", "Promises", "AJAX"]
+
+// 7. Написать функцию, которая определит массив, содеражщий только цифры
+
+const array1 = [2, 4, '1'];
+const array2 = [2, 4, 1];
+const array3 = [2, 4, "oups"]
+
+const isNumber = array => {
+  return array.some(value => typeof value !== 'number');
+  // return array.some(value => !Number.isNaN(value));
+};
+
+console.log(isNumber(array1)); // true
+console.log(isNumber(array2)); // false
+console.log(isNumber(array3)); // true
