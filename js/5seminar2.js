@@ -170,7 +170,37 @@ const a1 = new A();
 const b1 = new B();
 */
 
-/* class Worker {
+//////////////////////////////////////////////////
+
+/* #2.
+Реализуйте класс Worker (Работник), который будет иметь следующие свойства: name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней). Также класс должен иметь метод getSalary(), который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
+Вот так должен работать наш класс:
+var worker = new Worker('Иван', 'Иванов', 10, 31);
+console.log(worker.name); //выведет 'Иван'
+console.log(worker.surname); //выведет 'Иванов'
+console.log(worker.rate); //выведет 10
+console.log(worker.days); //выведет 31
+console.log(worker.getSalary()); //выведет 310 - то есть 10*31
+====
+Модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными, а для их чтения сделайте методы-геттеры. Наш класс теперь будет работать так:
+var worker = new Worker('Иван', 'Иванов', 10, 31);
+console.log(worker.getName); //выведет 'Иван'
+console.log(worker.getSurname); //выведет 'Иванов'
+console.log(worker.getRate); //выведет 10
+console.log(worker.getDays); //выведет 31
+console.log(worker.getSalary); //выведет 310 - то есть 10*31
+====
+Модифицируйте класс Worker из предыдущей задачи следующим образом: для свойства rate и для свойства days сделайте еще и методы-сеттеры. Наш класс теперь будет работать так:
+var worker = new Worker('Иван', 'Иванов', 10, 31);
+worker.getRate; //выведет 10
+worker.getDays; //выведет 31
+worker.getSalary; //выведет 310 - то есть 10*31
+//Теперь используем сеттер:
+worker.setRate = 20; //увеличим ставку
+worker.setDays = 10; //уменьшим дни
+console.log(worker.getSalary()); //выведет 200 - то есть 20*10 */
+
+class Worker {
   constructor({ firstname, lastname, rate, days }) {
     this._firstname = firstname;
     this._lastname = lastname;
@@ -215,7 +245,7 @@ const boss = new Boss({
   workersCount: 5,
 });
 
-console.log(boss.getFullName(), boss.getSalary()); // Fedor Sumkin 3750 */
+console.log(boss.getFullName(), boss.getSalary()); // Fedor Sumkin 3750
 
 ////////////////////////////////////////////
 
@@ -226,7 +256,7 @@ console.log(boss.getFullName(), boss.getSalary()); // Fedor Sumkin 3750 */
  * const array нельзя изменять
  */
 
-const PRIORITY = {
+/* const PRIORITY = {
   SUPER_HIGH: 'Super High',
   HIGH: 'High',
   NORMAL: 'Normal',
@@ -353,4 +383,4 @@ const sortTasks = tasks => {
   });
 };
 
-console.table(sortTasks(array));
+console.table(sortTasks(array)); */
