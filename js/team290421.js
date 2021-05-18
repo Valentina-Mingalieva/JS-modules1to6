@@ -1,6 +1,4 @@
-/* #1.
-Создайте функцию конструктор Calculator, которая создаёт «расширяемые» объекты калькулятора. 
-Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате «ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
+/* 1. Создайте функцию конструктор Calculator, которая создаёт «расширяемые» объекты калькулятора.  Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате «ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
 Пример использования:
 let calc = new Calculator();
 alert( calc.calculate("3 + 7") ); // 10
@@ -192,9 +190,35 @@ console.log(sortedArray(['Banana', 'Orange', 'Apple', 'Mango', 0, 2, 2])); // [0
 
 // 8. Сравнение объектов:
 
-const isEqual = (item1, item2) => item1 === item2;
+/* const isEqual = (item1, item2) => Object.entries(item1) === Object.entries(item2); */
 
-const data1 = {a: 1, b: {c: 1, d: 2}, f: {p: 5, q: 6}};
+function isEqual (obj1, obj2) {
+
+    if(obj1 === obj2) {
+        return true;
+    } else {
+        if (Object.keys(obj1).length != Object.keys(obj2).length) {
+            // Проверка на одинаковое количество свойств
+            return false;
+        }
+        for(var propName in obj1) {
+            if (!obj2.hasOwnProperty(propName)) {
+                // Есть ли свойства в обоих объектах
+                return false;
+            }
+            if (obj1[propName].valueOf() !== obj2[propName].valueOf()) {
+                // Одинаковы ли значения свойст
+                if (!isEqual(obj1[propName], obj2[propName])) {
+                    // проверка объекта в объекте
+                    return false;
+                }
+            }
+        }
+    } 
+    return true;
+}
+
+const data1 = { a: 1, b: { c: 1, d: 2 }, f: { p: 5, q: 6 } };
 const data2 = {a: 1, b: {c: 1, d: 2}, f: {p: 5, q: 6}};
 const data3 = {a: 1, b: {c: 2}, l: {m: 2}};
 const data4 = {a: 1, b: 2, c: {d: 6, e: 8}};
